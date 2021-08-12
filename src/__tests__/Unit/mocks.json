@@ -1,0 +1,31 @@
+{
+    "mockReqBody": {
+        "startDate": "2021-01-21",
+        "endDate": "2021-04-21",
+        "minCount": 4000,
+        "maxCount": 5000
+    },
+    "mockInvalidReqBody": {
+        "startDate": "20-01-21",
+        "endDate": "2021-04-21",
+        "minCount": 4000,
+        "maxCount": 5000
+    },
+    "mockRecords": [
+        {
+            "key": "PVLFLSNw",
+            "createdAt": "2016-12-30T04:51:57.295Z",
+            "totalCount": 4184
+        },
+        {
+            "key": "GnJvymcT",
+            "createdAt": "2016-12-29T23:43:32.214Z",
+            "totalCount": 4641
+        },
+        {
+            "key": "GnJvymcT",
+            "createdAt": "2016-12-29T23:43:32.214Z",
+            "totalCount": 4641
+        }
+    ]
+}
