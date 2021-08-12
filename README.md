@@ -1,5 +1,7 @@
 # Getir Assignment
 
+This App is Hosted on Heroku and demonstrate a Node Application using Express and Mongo 
+
 ## Prerequisites
 
 - [NodeJS](https://nodejs.org/en/blog/release/v12.4.0/)
@@ -21,7 +23,8 @@ Testing
 ## End Point
 
 Get Records
--URL `http://localhost:3000/getir/v1/getRecords`
+
+-URL `https://getir-assignment-anas.herokuapp.com/getir/v1/getRecords`
 
 ## Running the application on Local Machine
 
