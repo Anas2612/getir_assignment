@@ -11,6 +11,24 @@
         "minCount": 4000,
         "maxCount": 5000
     },
+    "mockInvalidDateRangeReqBody": {
+        "startDate": "2021-06-21",
+        "endDate": "2021-04-21",
+        "minCount": 4000,
+        "maxCount": 5000
+    },
+    "mockInvalidminCountTypeReqBody": {
+        "startDate": "2021-01-21",
+        "endDate": "2021-04-21",
+        "minCount": "4000",
+        "maxCount": 5000
+    },
+    "mockInvalidCountRangeReqBody": {
+        "startDate": "2021-01-21",
+        "endDate": "2021-04-21",
+        "minCount": 40000,
+        "maxCount": 5000
+    },
     "mockRecords": [
         {
             "key": "PVLFLSNw",

@@ -24,8 +24,8 @@ exports.fetchRecodsWithFilters = async ({
       },
       {
         $match: {
-          createdAt: { $gte: startDate, $lte: endDate },
-          totalCount: { $gt: minCount, $lt: maxCount },
+          createdAt: { $gte: new Date(startDate), $lt: new Date(endDate) }, // including start date and excluding end Date boundary
+          totalCount: { $gte: minCount, $lte: maxCount }, // including boundary value for min and max count
         },
       },
     ]);

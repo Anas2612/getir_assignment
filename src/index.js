@@ -24,7 +24,7 @@ const server = app.listen(port, async () => {
 const exitHandler = () => {
   if (server) {
     server.close(() => {
-      logger.info("Server closed");
+      logger.log.info("Server closed");
       process.exit(1);
     });
   } else {
@@ -44,7 +44,7 @@ process.on("unhandledRejection", unexpectedErrorHandler);
  * Gracefuly close server
  */
 process.on("SIGTERM", () => {
-  logger.info("SIGTERM received");
+  logger.log.info("SIGTERM received");
   if (server) {
     server.close();
   }

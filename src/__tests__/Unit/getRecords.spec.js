@@ -30,12 +30,41 @@ describe("Get Records Unit Tests", () => {
   });
 
   test("Should Throw Error for invalid request body", async () => {
-    mockGetRecordsFromDB.mockResolvedValue();
     const res = await request(app)
       .post("/getir/v1/getRecords")
       .send(mockData.mockInvalidReqBody);
     expect(res.statusCode).toEqual(httpStatus.BAD_REQUEST);
     expect(res.body.code).toBe(ERROR_CODES_CATEGORY.VALIDATION_ERROR);
+    expect(res.body.error).toBe('"startDate" must be in YYYY-MM-DD format');
+  });
+
+  test("Should perform startDate and endDate validations", async () => {
+    const res = await request(app)
+      .post("/getir/v1/getRecords")
+      .send(mockData.mockInvalidDateRangeReqBody); // here startDate is Greater than endDate
+    expect(res.statusCode).toEqual(httpStatus.BAD_REQUEST);
+    expect(res.body.code).toBe(ERROR_CODES_CATEGORY.VALIDATION_ERROR);
+    expect(res.body.error).toBe(
+      '"endDate" must be greater than "ref:startDate"'
+    );
+  });
+
+  test("Should check if minCount or maxCount are number", async () => {
+    const res = await request(app)
+      .post("/getir/v1/getRecords")
+      .send(mockData.mockInvalidminCountTypeReqBody); // here startDate is Greater than endDate
+    expect(res.statusCode).toEqual(httpStatus.BAD_REQUEST);
+    expect(res.body.code).toBe(ERROR_CODES_CATEGORY.VALIDATION_ERROR);
+    expect(res.body.error).toBe('"minCount" must be a number');
+  });
+
+  test("Should perform minCount and maxCount validations", async () => {
+    const res = await request(app)
+      .post("/getir/v1/getRecords")
+      .send(mockData.mockInvalidCountRangeReqBody); // here startDate is Greater than endDate
+    expect(res.statusCode).toEqual(httpStatus.BAD_REQUEST);
+    expect(res.body.code).toBe(ERROR_CODES_CATEGORY.VALIDATION_ERROR);
+    expect(res.body.error).toBe('"maxCount" must be greater than ref:minCount');
   });
 
   test("Should return the records based on filters", async () => {

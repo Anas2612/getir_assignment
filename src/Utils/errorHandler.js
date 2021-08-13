@@ -29,8 +29,14 @@ const successResponse = (records = []) => ({
   records,
 });
 
+const notFoundError = () => ({
+  code: ERROR_CODES_CATEGORY.NOT_FOUND,
+  msg: ERROR_MESSAGES.NOT_FOUND,
+});
+
 module.exports = {
   validationError,
   internalServerError,
   successResponse,
+  notFoundError,
 };
